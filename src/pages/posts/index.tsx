@@ -32,7 +32,7 @@ export default function Posts(
   const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
   return (
     <Container>
-      <section>
+      <section className="flex">
         {posts.length ? (
           posts.map((post) => <Card key={post._id} post={post} />)
         ) : (

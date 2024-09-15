@@ -24,8 +24,9 @@ export default function Card({ post }: { post: Post }) {
             {post.title}
           </a>
         </h3>
+
         <p className="card__excerpt">{post.excerpt}</p>
-        <p className="card__date">{formatDate(post._createdAt)}</p>
+        <p className="card__date red">{formatDate(post.date)}</p>
       </div>
     </div>
   )

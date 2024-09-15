@@ -39,6 +39,11 @@ export default defineType({
       title: 'Body',
       type: 'blockContent',
     }),
+    defineField({
+      name: 'date',
+      title: 'Date',
+      type: 'date',
+    }),
   ],
   preview: {
     select: {
