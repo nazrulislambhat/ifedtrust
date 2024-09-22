@@ -11,6 +11,17 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      title: 'Type',
+      name: 'type',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Event', value: 'Event' },
+          { title: 'Educational Tour', value: 'Educational Tour' },
+        ], // <-- predefined values
+      },
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
@@ -20,20 +31,7 @@ export default defineType({
         maxLength: 96,
       },
     }),
-    defineField({
-      name: 'excerpt',
-      title: 'Excerpt',
-      type: 'text',
-      rows: 4,
-    }),
-    defineField({
-      name: 'mainImage',
-      title: 'Main image',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-    }),
+
     defineField({
       name: 'body',
       title: 'Body',

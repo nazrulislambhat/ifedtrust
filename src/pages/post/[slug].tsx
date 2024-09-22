@@ -71,7 +71,8 @@ export default function ProjectSlugRoute(
           <p className="post__date red">{formatDate(post.date)}</p>
           <div className="post__content">
             <PortableText value={post.body} />
-          </div>
+          </div>{' '}
+          <p>{post.type}</p>
         </div>
       </section>
     </Container>
