@@ -43,7 +43,7 @@ export interface Post {
   _id: string
   _createdAt: string
   title?: string
-  type: 'e vent' | 'Educational Tour' | 'Event' // Specify the allowed values here
+  type: 'event' | 'Educational Tour' | 'Event' // Specify the allowed values here
   slug: Slug
   date: string
   excerpt?: string
