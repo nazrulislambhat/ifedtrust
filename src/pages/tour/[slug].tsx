@@ -8,10 +8,10 @@ import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
 import { urlForImage } from '~/lib/sanity.image'
 import {
-  getPost,
-  type Post,
-  postBySlugQuery,
-  postSlugsQuery,
+  getTour,
+  type Tour,
+  tourBySlugQuery,
+  tourSlugsQuery,
 } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 import { formatDate } from '~/utils'
@@ -22,14 +22,14 @@ interface Query {
 
 export const getStaticProps: GetStaticProps<
   SharedPageProps & {
-    post: Post
+    tour: Tour
   },
   Query
 > = async ({ draftMode = false, params = {} }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
-  const post = await getPost(client, params.slug)
+  const tour = await getTour(client, params.slug)
 
-  if (!post) {
+  if (!tour) {
     return {
       notFound: true,
     }
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps<
     props: {
       draftMode,
       token: draftMode ? readToken : '',
-      post,
+      tour,
     },
   }
 }
@@ -47,32 +47,20 @@ export const getStaticProps: GetStaticProps<
 export default function ProjectSlugRoute(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
-  const [post] = useLiveQuery(props.post, postBySlugQuery, {
-    slug: props.post.slug.current,
+  const [tour] = useLiveQuery(props.tour, tourBySlugQuery, {
+    slug: props.tour.slug.current,
   })
 
   return (
     <Container>
-      <section className="post">
-        {post.mainImage ? (
-          <Image
-            className="post__cover"
-            src={urlForImage(post.mainImage).url()}
-            height={231}
-            width={367}
-            alt=""
-          />
-        ) : (
-          <div className="post__cover--none" />
-        )}
-        <div className="post__container">
-          <h1 className="post__title">{post.title}</h1>
-          <p className="post__excerpt">{post.excerpt}</p>
-          <p className="post__date red">{formatDate(post.date)}</p>
-          <div className="post__content">
-            <PortableText value={post.body} />
+      <section className="tour">
+        <div className="tour__container">
+          <h1 className="tour__title">{tour.title}</h1>
+          <p className="tour__excerpt">{tour.excerpt}</p>
+          <p className="tour__date red">{formatDate(tour.date)}</p>
+          <div className="tour__content">
+            <PortableText value={tour.body} />
           </div>{' '}
-          <p>{post.type}</p>
         </div>
       </section>
     </Container>
@@ -81,10 +69,10 @@ export default function ProjectSlugRoute(
 
 export const getStaticPaths = async () => {
   const client = getClient()
-  const slugs = await client.fetch(postSlugsQuery)
+  const slugs = await client.fetch(tourSlugsQuery)
 
   return {
-    paths: slugs?.map(({ slug }) => `/post/${slug}`) || [],
+    paths: slugs?.map(({ slug }) => `/tour/${slug}`) || [],
     fallback: 'blocking',
   }
 }

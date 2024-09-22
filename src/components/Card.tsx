@@ -1,35 +1,24 @@
 import Image from 'next/image'
 
 import { urlForImage } from '~/lib/sanity.image'
-import { type Post } from '~/lib/sanity.queries'
+import { type Tour } from '~/lib/sanity.queries'
 import { formatDate } from '~/utils'
 
-export default function Card({ post }: { post: Post }) {
+export default function Card({ tour }: { tour: Tour }) {
   return (
     <div className="card shadow-2xl ">
-      {post.mainImage ? (
-        <Image
-          className="card__cover"
-          src={urlForImage(post.mainImage).width(500).height(300).url()}
-          height={300}
-          width={500}
-          alt=""
-        />
-      ) : (
-        <div className="card__cover--none" />
-      )}
       <div className="card__container">
         <h3 className="card__title">
           <a
             className="card__link text-red-700 text-3xl"
-            href={`/post/${post.slug.current}`}
+            href={`/post/${tour.slug.current}`}
           >
-            {post.title}
+            {tour.title}
           </a>
         </h3>
-        <p>{post.type}</p>
-        <p className="card__excerpt">{post.excerpt}</p>
-        <p className="card__date red">{formatDate(post.date)}</p>
+
+        <p className="card__excerpt">{tour.excerpt}</p>
+        <p className="card__date red">{formatDate(tour.date)}</p>
       </div>
     </div>
   )

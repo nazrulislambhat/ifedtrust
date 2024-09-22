@@ -6,35 +6,35 @@ import Container from '~/components/Container'
 import Welcome from '~/components/Welcome'
 import { readToken } from '~/lib/sanity.api'
 import { getClient } from '~/lib/sanity.client'
-import { getPosts, type Post, postsQuery } from '~/lib/sanity.queries'
+import { getTours, type Tour, toursQuery } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 
 export const getStaticProps: GetStaticProps<
   SharedPageProps & {
-    posts: Post[]
+    tours: Tour[]
   }
 > = async ({ draftMode = false }) => {
   const client = getClient(draftMode ? { token: readToken } : undefined)
-  const posts = await getPosts(client)
+  const tours = await getTours(client)
 
   return {
     props: {
       draftMode,
       token: draftMode ? readToken : '',
-      posts,
+      tours,
     },
   }
 }
 
-export default function Posts(
+export default function Tours(
   props: InferGetStaticPropsType<typeof getStaticProps>,
 ) {
-  const [posts] = useLiveQuery<Post[]>(props.posts, postsQuery)
+  const [tours] = useLiveQuery<Tour[]>(props.tours, toursQuery)
   return (
     <Container>
       <section className="flex justify-center gap-8">
-        {posts.length ? (
-          posts.map((post) => <Card key={post._id} post={post} />)
+        {tours.length ? (
+          tours.map((tour) => <Card key={tour._id} tour={tour} />)
         ) : (
           <Welcome />
         )}

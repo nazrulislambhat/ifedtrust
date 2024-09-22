@@ -3,7 +3,7 @@ function App() {
   return (
     <div>
       Home
-      <Link href="/posts">Posts</Link>
+      <Link href="/tours">tours</Link>
     </div>
   )
 }

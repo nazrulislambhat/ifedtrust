@@ -14,12 +14,6 @@ export default defineType({
       title: 'Type',
       name: 'type',
       type: 'string',
-      options: {
-        list: [
-          { title: 'Event', value: 'Event' },
-          { title: 'Educational Tour', value: 'Educational Tour' },
-        ], // <-- predefined values
-      },
     }),
     defineField({
       name: 'slug',

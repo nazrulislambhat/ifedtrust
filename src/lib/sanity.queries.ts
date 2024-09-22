@@ -3,47 +3,31 @@ import type { ImageAsset, Slug } from '@sanity/types'
 import groq from 'groq'
 import { type SanityClient } from 'next-sanity'
 
-export const postsQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`
-export const eventsQuery = groq`*[_type == "event" && defined(slug.current)] | order(_createdAt desc)`
+export const toursQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`
 
-export async function getPosts(client: SanityClient): Promise<Post[]> {
-  return await client.fetch(postsQuery)
-}
-export async function getEvents(client: SanityClient): Promise<Event[]> {
-  return await client.fetch(eventsQuery)
+export async function getTours(client: SanityClient): Promise<Tour[]> {
+  return await client.fetch(toursQuery)
 }
 
-export const postBySlugQuery = groq`*[_type == "post" && slug.current == $slug][0]`
-export const eventBySlugQuery = groq`*[_type == "event" && slug.current == $slug][0]`
+export const tourBySlugQuery = groq`*[_type == "tour" && slug.current == $slug][0]`
 
-export async function getPost(
+export async function getTour(
   client: SanityClient,
   slug: string,
-): Promise<Post> {
-  return await client.fetch(postBySlugQuery, {
+): Promise<Tour> {
+  return await client.fetch(tourBySlugQuery, {
     slug,
   })
 }
-export async function getEvent(
-  client: SanityClient,
-  slug: string,
-): Promise<Event> {
-  return await client.fetch(eventBySlugQuery, {
-    slug,
-  })
-}
-export const postSlugsQuery = groq`
-*[_type == "post" && defined(slug.current)][].slug.current
+
+export const tourSlugsQuery = groq`
+*[_type == "tour" && defined(slug.current)][].slug.current
 `
-export const eventSlugsQuery = groq`
-*[_type == "event" && defined(slug.current)][].slug.current
-`
-export interface Post {
-  _type: 'post'
+export interface Tour {
+  _type: 'tour'
   _id: string
   _createdAt: string
   title?: string
-  type: 'event' | 'Educational Tour' | 'Event' // Specify the allowed values here
   slug: Slug
   date: string
   excerpt?: string
