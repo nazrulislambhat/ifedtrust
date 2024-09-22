@@ -32,7 +32,7 @@ export default function Tours(
   const [tours] = useLiveQuery<Tour[]>(props.tours, toursQuery)
   return (
     <Container>
-      <section className="flex justify-center gap-8">
+      <section className="flex justify-center gap-8 ">
         {tours.length ? (
           tours.map((tour) => <Card key={tour._id} tour={tour} />)
         ) : (
