@@ -3,7 +3,7 @@ import type { ImageAsset, Slug } from '@sanity/types'
 import groq from 'groq'
 import { type SanityClient } from 'next-sanity'
 
-export const toursQuery = groq`*[_type == "post" && defined(slug.current)] | order(_createdAt desc)`
+export const toursQuery = groq`*[_type == "tour" && defined(slug.current)] | order(_createdAt desc)`
 
 export async function getTours(client: SanityClient): Promise<Tour[]> {
   return await client.fetch(toursQuery)

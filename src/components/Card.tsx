@@ -11,7 +11,7 @@ export default function Card({ tour }: { tour: Tour }) {
         <h3 className="card__title">
           <a
             className="card__link text-red-700 text-3xl"
-            href={`/post/${tour.slug.current}`}
+            href={`/tour/${tour.slug.current}`}
           >
             {tour.title}
           </a>
