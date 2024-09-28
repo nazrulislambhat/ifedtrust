@@ -1,19 +1,49 @@
-# A minimal Next.js site with Sanity Studio
+# Initiative for Enlightenment & Development (IFED)
 
-This starter is a statically generated site that uses [Next.js][nextjs] for the frontend and [Sanity][sanity-homepage] to handle its content.
-It comes with a native Sanity Studio that offers features like real-time collaboration, instant side-by-side content previews, and intuitive editing.
+**Initiative for Enlightenment & Development (IFED)** is a Development-Oriented Organization committed to the upliftment of the poor and needy. Our core areas of focus include:
 
-The Studio connects to Sanity Content Lake, which gives you hosted content APIs with a flexible query language, on-demand image transformations, powerful patching, and more.
-You can use this starter to kick-start a clean slate site or learn these technologies.
+- **Education**
+- **Health**
+- **Environment**
+- **Agriculture**
+- **Women Empowerment**
+- **Skill Development**
 
-[![Deploy with Vercel](https://vercel.com/button)][vercel-deploy]
+We aim to create sustainable development opportunities that enhance the quality of life for underserved communities.
 
-> **Note**
->
-> This starter uses the `/pages` directory for Next.js routing.
->
-> The template will be migrated to the currently experimental [/app][app-dir] directory
-> when Vercel announce that it is production ready.
+## Tech Stack
+
+This project is developed using modern web technologies to ensure scalability and ease of content management:
+
+- **Next.js**: A React-based framework for server-side rendering and static site generation.
+- **JavaScript (ES6+)**: The core language used for interactivity and functionality.
+- **Strapi** *(optional CMS)*: A headless CMS to manage and deliver content across platforms.
+- **Other Services**: Integrated third-party services for enhanced functionality.
+
+## Project Setup
+
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/ifed.git
+2. Navigate to the project directory:
+   ```bash
+    cd ifed
+3. Install dependencies:
+   ```bash
+    npm install
+4. Run the development server:
+    ```bash
+     npm run dev
+
+## Domains
+- Development Domain: https://ifedtrust.vercel.app
+- Production Domain: https://ifedtrust.com
+
+## Support
+For any inquiries or support, contact us at:
+Email: dev@ifedtrust.com
 
 ## Table of Contents
 
