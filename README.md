@@ -62,12 +62,6 @@ Email: dev@ifedtrust.com
   - [How can I set up Incremental Static Revalidation?](#how-can-i-set-up-incremental-static-revalidation)
 - [Next steps](#next-steps)
 
-## Project Overview
-
-| [Example Studio with preview](https://template-nextjs-clean.sanity.build/studio)                                        |
-| ----------------------------------------------------------------------------------------------------------------------- |
-| ![Sanity Studio](https://user-images.githubusercontent.com/44635000/197511725-b2a2e2e5-287b-41a9-84c6-ec90d37ca480.png) |
-
 # Important files and folders
 
 | File(s)                          | Description                                                                           |
@@ -135,28 +129,6 @@ Alternatively, you can deploy without a `git` hosting provider using the Vercel 
 ```bash
 npx vercel --prod
 ```
-
-## Questions and Answers
-
-### It doesn't work! Where can I get help?
-
-In case of any issues or questions, you can post:
-
-- [GitHub Discussions for Next.js][vercel-github]
-- [Sanity's GitHub Discussions][sanity-github]
-- [Sanity's Community Slack][sanity-community]
-
-### How can I remove the "Next steps" block from my app?
-
-You can remove it by deleting `intro-template`, and removing `IntroTemplate` usage from `pages/index.tsx`
-
-## Next steps
-
-- [Setup live preview](./docs/studio-preview.md)
-- [Join our Slack community to ask questions and get help][sanity-community]
-- [How to edit my content structure?][sanity-schema-types]
-- [How to query content?][sanity-groq]
-- [What is content modelling?][sanity-content-modelling]
 
 [vercel-deploy]: https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsanity-io%2Fsanity-template-nextjs-clean&repository-name=nextjs-sanity-clean&project-name=nextjs-sanity-clean&demo-title=Clean+Sanity+%2B+Next.js+app&demo-image=https%3A%2F%2Fuser-images.githubusercontent.com%2F835514%2F212771865-7a603a28-0416-45e8-84d3-2aafe02b0c7f.png&demo-description=A+clean+example+of+Next.js+with+embedded+Sanity+ready+for+recomposition.&demo-url=https%3A%2F%2Ftemplate-nextjs-clean.sanity.build&integration-ids=oac_hb2LITYajhRQ0i4QznmKH7gx&external-id=nextjs%3Btemplate%3Dnextjs-sanity-clean
 [integration]: https://www.sanity.io/docs/vercel-integration?utm_source=github.com&utm_medium=referral&utm_campaign=nextjs-v3vercelstarter
